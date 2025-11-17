@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Send, ThumbsUp, ThumbsDown, MessageSquare } from 'lucide-react';
 import useApi from '../../hooks/useApi';
 import ResponseTable from './ResponseTable';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const ChatMessage = ({ message }) => {
   if (message.type === 'user') {
@@ -20,16 +20,11 @@ const ChatMessage = ({ message }) => {
   return (
     <div className="flex justify-start mb-8">
       <div className="max-w-4xl w-full p-5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-xl border border-gray-200 dark:border-gray-700">
-        <p className="mb-4 text-base leading-relaxed">
-          {answer.description}
-        </p>
-
+        <p className="mb-4 text-base leading-relaxed">{answer.description}</p>
         <ResponseTable data={answer.table_data} />
 
         <div className="flex items-center space-x-3 mt-4 pt-3 border-t border-gray-300 dark:border-gray-700">
-          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-            Feedback:
-          </span>
+          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Feedback:</span>
 
           <button className="flex items-center space-x-1 p-1 rounded-md text-green-600 hover:bg-green-200/50 dark:hover:bg-gray-700">
             <ThumbsUp size={16} />
@@ -48,6 +43,7 @@ const ChatMessage = ({ message }) => {
 
 const ChatInterface = () => {
   const { sessionId } = useParams();
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -80,13 +76,13 @@ const ChatInterface = () => {
     setIsLoading(true);
 
     const newUserMessage = { id: Date.now(), type: 'user', content: text };
-    setMessages(prev => [...prev, newUserMessage]);
+    setMessages((prev) => [...prev, newUserMessage]);
 
     const data = await askQuestion(sessionId, text);
 
     if (data?.answer) {
       const aiResponse = { id: Date.now() + 1, type: 'ai', content: data.answer };
-      setMessages(prev => [...prev, aiResponse]);
+      setMessages((prev) => [...prev, aiResponse]);
     }
 
     setIsLoading(false);
@@ -97,7 +93,14 @@ const ChatInterface = () => {
       <div className="flex flex-col items-center justify-center flex-grow p-8 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300">
         <MessageSquare size={64} className="text-indigo-500 mb-4" />
         <h2 className="text-2xl font-semibold mb-2">Welcome to Simplified Chat</h2>
-        <p className="text-lg">Select a session from the left or click New Chat to begin.</p>
+        <p className="text-lg mb-6">Select a session or start a new one.</p>
+
+        <button
+          onClick={() => navigate('/chat/new')}
+          className="px-6 py-3 rounded-xl bg-indigo-600 text-white text-lg hover:bg-indigo-700 transition shadow-md"
+        >
+          Start Chat
+        </button>
       </div>
     );
   }
@@ -106,7 +109,7 @@ const ChatInterface = () => {
     <div className="flex flex-col flex-grow h-full overflow-hidden bg-gray-50 dark:bg-gray-900">
       <div className="flex-grow p-6 overflow-y-auto space-y-4">
         {isLoading && messages.length === 0 ? (
-          <p className="text-center text-indigo-500">Loading chat history...</p>
+          <p className="text-center text-indigo-500">Loading chat...</p>
         ) : (
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)
         )}
@@ -119,8 +122,8 @@ const ChatInterface = () => {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={isLoading ? "Waiting for response..." : "Ask me anything..."}
-            className="flex-grow p-4 pr-12 rounded-xl border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+            placeholder={isLoading ? 'Waiting for response...' : 'Ask me anything...'}
+            className="flex-grow p-4 pr-12 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500"
             disabled={isLoading}
           />
 

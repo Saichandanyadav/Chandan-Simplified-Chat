@@ -10,7 +10,10 @@ const Header = () => {
 
   return (
     <header className="flex items-center justify-between p-4 border-b bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 shadow-md">
-      <h1 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+      <h1
+        className="text-xl font-bold text-indigo-600 dark:text-indigo-400 cursor-pointer"
+        onClick={() => navigate('/')}
+      >
         Simplified Chat
       </h1>
 
