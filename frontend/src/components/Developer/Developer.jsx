@@ -3,25 +3,25 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Developer = () => {
   return (
-    <div className="h-full w-full p-6 overflow-y-auto bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex justify-center">
-      <div className="max-w-xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+    <div className="min-h-screen w-full p-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex justify-center">
+      <div className="w-full max-w-xl bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8">
         <div className="flex flex-col items-center text-center">
           <img
             src="/developer.jpg"
             alt="Developer"
-            className="w-32 h-32 rounded-full object-cover shadow-md"
+            className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover shadow-md"
           />
 
-          <h1 className="text-3xl font-bold mt-4 text-indigo-600 dark:text-indigo-400">
+          <h1 className="text-2xl sm:text-3xl font-bold mt-4 text-indigo-600 dark:text-indigo-400">
             Sai Chandan Gundaboina
           </h1>
 
           <p className="text-sm mt-1 text-gray-700 dark:text-gray-300">
-            Full Stack Developer • Mern Stack • Entrepreneur
+            Full Stack Developer • MERN Stack • Entrepreneur
           </p>
 
           <p className="text-sm mt-1 text-gray-600 dark:text-gray-400">
-            Passionate about building scalable and impactful applications.
+            Passionate about building scalable, modern and impactful applications.
           </p>
 
           <div className="flex space-x-5 mt-5">
@@ -31,7 +31,7 @@ const Developer = () => {
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-indigo-200 dark:hover:bg-indigo-600 transition"
             >
-              <Linkedin size={24} />
+              <Linkedin size={22} />
             </a>
 
             <a
@@ -40,33 +40,29 @@ const Developer = () => {
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-indigo-200 dark:hover:bg-indigo-600 transition"
             >
-              <Github size={24} />
+              <Github size={22} />
             </a>
 
             <a
               href="mailto:Saichandhanyadav2002@gmail.com"
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-indigo-200 dark:hover:bg-indigo-600 transition"
             >
-              <Mail size={24} />
+              <Mail size={22} />
             </a>
           </div>
         </div>
 
-        <div className="mt-8 space-y-3 text-sm text-gray-800 dark:text-gray-300">
+        <div className="mt-8 space-y-4 text-sm text-gray-800 dark:text-gray-300 leading-relaxed">
           <p>
-            Skilled in MERN Stack, React, Node.js, Express, MongoDB, REST APIs,
-            Tailwind CSS, Redux, Firebase and more.
+            Skilled in MERN Stack, React, Node.js, Express, MongoDB, REST APIs, Tailwind CSS, Firebase, Redux and modern UI/UX.
           </p>
 
           <p>
-            Experience working on chat apps, admin dashboards, real-time systems,
-            stock market applications, railway UI systems, time zone tools and several
-            frontend-only applications with complex UI/UX.
+            Worked on chat applications, admin dashboards, real-time systems, stock market tools, railway UI systems, time zone converters, and high-quality frontend applications.
           </p>
 
           <p>
-            Focused on clean UI, scalable architecture, and delivering smooth user
-            experiences across devices.
+            Dedicated to clean UI, responsive design, scalable architecture and delivering smooth and intuitive user experiences.
           </p>
         </div>
       </div>
