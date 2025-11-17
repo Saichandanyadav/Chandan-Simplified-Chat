@@ -1,7 +1,24 @@
 # 📘 Simplified Chat Application (Frontend + Backend)
 
-A lightweight **ChatGPT-style mock AI chat system** built using **React, TailwindCSS, Node.js (Express)** and **mock JSON data**.
-This project demonstrates clean UI/UX, session-based routing, theme toggling, collapsible sidebar, and structured chat responses.
+A lightweight **ChatGPT-style mock AI chat application** built using **React + TailwindCSS (Frontend)** and **Node.js + Express (Backend)** with mock JSON data.
+The project showcases clean UI, responsive layout, session-based routing, theme switching, collapsible sidebar, and structured AI-like responses.
+
+---
+
+# 🌐 Live Demo
+
+🔗 **Frontend Deployed on Vercel:**
+👉 [https://chandan-simplified-chat.vercel.app/](https://chandan-simplified-chat.vercel.app/)
+
+🔗 **GitHub Repository:**
+👉 [https://github.com/Saichandanyadav/Chandan-Simplified-Chat](https://github.com/Saichandanyadav/Chandan-Simplified-Chat)
+
+---
+
+# 🖼️ Screenshot
+
+<img width="411" height="734" alt="Screenshot 2025-11-17 132731" src="https://github.com/user-attachments/assets/8b072d39-8a1d-4715-b6a8-1307c33268bd" />
+
 
 ---
 
@@ -10,71 +27,66 @@ This project demonstrates clean UI/UX, session-based routing, theme toggling, co
 ### **Frontend**
 
 * React (Vite)
-* JavaScript
 * TailwindCSS
+* JavaScript (ES6+)
 * React Router DOM
 * Lucide Icons
 
 ### **Backend**
 
-* Node.js + Express
+* Node.js (Express)
 * CORS enabled
-* Mock JSON data (no database)
-* Static session history and AI responses
+* Mock JSON dataset
+* Session-based mock chat responses
 
 ---
 
-## 📌 Project Features
+## 📌 Key Features
 
-### ✅ **Landing Page**
+### 🟦 **Landing Page**
 
-* “New Chat” button to start a chat session
-* Opens the main chat interface
+* “New Chat” button
+* Simple and clean navigation experience
 
-### ✅ **Collapsible Left Sidebar**
+### 🟪 **Collapsible Sidebar**
 
-Displays:
+Contains:
 
-* All sessions
+* Session history
 * New Chat button
 * User info
-  Fully responsive for mobile & tablet.
+  Fully mobile responsive.
 
-### ✅ **Chat Interface**
+### 🟩 **Chat Interface**
 
-* User types a question
-* Backend returns dummy JSON containing:
+* Submit user query
+* Backend sends structured JSON containing:
 
-  * A description
-  * A table (structured data)
-  * Feedback object
+  * Description
+  * Table data
+  * Feedback
 
-### ✅ **Answer Feedback**
+### 🟧 **Feedback Buttons**
 
-Each AI response includes:
+* 👍 Like / 👎 Dislike
+* Stored locally (no database)
 
-* 👍 Like
-* 👎 Dislike
+### 🌗 **Theme Toggle (Dark/Light)**
 
-(Stored only on UI, no DB.)
+* Global theme switch
+* Applies to all UI sections
 
-### ✅ **Theme Switching (Dark/Light)**
+### 🌀 **Session Management**
 
-Global theme toggle:
+* Auto-generate `sessionId`
+* URL updates: `/chat/:sessionId`
+* History persists per session
 
-* Changes full UI colors, background, typography
+### 🛠️ **Backend APIs**
 
-### ✅ **Session Management (Bonus)**
-
-* Each new chat generates a new `sessionId`
-* URL changes to `/chat/:sessionId`
-* Switching sessions loads entire saved history
-
-### ✅ **Backend APIs**
-
-* New chat
+* Create new chat
 * Ask a question
-* Fetch sessions
+* Fetch session list
 * Fetch session history
 
 ---
@@ -102,9 +114,7 @@ root/
 
 ### **1️⃣ Start New Chat**
 
-**GET** `/api/chat/new`
-
-**Response**
+`GET /api/chat/new`
 
 ```json
 {
@@ -117,9 +127,7 @@ root/
 
 ### **2️⃣ Get All Sessions**
 
-**GET** `/api/sessions`
-
-**Response**
+`GET /api/sessions`
 
 ```json
 [
@@ -130,36 +138,19 @@ root/
 
 ---
 
-### **3️⃣ Ask a Question in a Session**
+### **3️⃣ Ask a Question**
 
-**POST** `/api/chat/:sessionId/ask`
-
-Body:
+`POST /api/chat/:sessionId/ask`
 
 ```json
 { "question": "What are the best-selling products?" }
-```
-
-Response:
-
-```json
-{
-  "session_id": "sess_12345",
-  "answer": {
-    "description": "...",
-    "table_data": [],
-    "feedback": { "likes": 12, "dislikes": 1 }
-  }
-}
 ```
 
 ---
 
 ### **4️⃣ Fetch Session History**
 
-**GET** `/api/chat/:sessionId/history`
-
-Response:
+`GET /api/chat/:sessionId/history`
 
 ```json
 [
@@ -170,62 +161,44 @@ Response:
 
 ---
 
-# 🛠️ Installation & Local Setup
+# 🛠️ Local Setup
 
 ## **1. Clone the Repository**
 
 ```sh
-git clone <your-repo-url>
-cd project-folder
+git clone https://github.com/Saichandanyadav/Chandan-Simplified-Chat
+cd Chandan-Simplified-Chat
 ```
 
 ---
 
-# ⚙️ Backend Setup (Express)
-
-### Install dependencies
+# ⚙️ Backend Setup
 
 ```sh
 cd backend
 npm install
-```
-
-### Run the server
-
-```sh
 npm run dev
 ```
 
-Server runs at:
-
-👉 **[http://localhost:5000](http://localhost:5000)**
+🔹 Runs at: [http://localhost:5000](http://localhost:5000)
 
 ---
 
-# 🎨 Frontend Setup (React + Vite)
-
-### Install dependencies
+# 🎨 Frontend Setup
 
 ```sh
 cd frontend
 npm install
-```
-
-### Run the frontend
-
-```sh
 npm run dev
 ```
 
-Vite runs at:
-
-👉 **[http://localhost:5173](http://localhost:5173)**
+🔹 Runs at: [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 🔗 Connect Frontend & Backend
+## 🔗 Connect Frontend to Backend
 
-In your frontend, ensure API URL:
+Update the base URL inside frontend API config:
 
 ```js
 const BASE_URL = "http://localhost:5000";
@@ -235,16 +208,14 @@ const BASE_URL = "http://localhost:5000";
 
 # 🌍 Deployment Guide
 
-### **Option 1 (Recommended):**
+### **Recommended Setup**
 
 * **Frontend → Vercel**
 * **Backend → Render**
 
-Great performance + stable free tier.
+### **Alternate (Combined Deployment)**
 
-### **Option 2 (Single Deployment):**
-
-Serve React build from Express and deploy backend only on:
+Deploy Express + React build on:
 
 * Render
 * Railway
@@ -252,9 +223,7 @@ Serve React build from Express and deploy backend only on:
 
 ---
 
-# 🧪 Dummy Data Example
-
-Your backend returns structured AI-like output:
+# 🧪 Example AI Response (Dummy Data)
 
 ```json
 {
@@ -272,25 +241,38 @@ Your backend returns structured AI-like output:
 
 # 📄 Deliverables Checklist
 
-✔ Frontend (React + TailwindCSS)
-✔ Backend (Express + Mock Data)
-✔ Responsive Design
+✔ React Frontend
+✔ Express Backend
 ✔ Chat Interface
-✔ Sidebar
 ✔ Theme Toggle
-✔ Session Management
-✔ API Handling
-✔ Clean Code
-✔ GitHub Links
+✔ Sessions & Routing
+✔ Sidebar Navigation
+✔ Deployed Link
+✔ GitHub Link
+✔ Professional README
 
 ---
 
 # 🎯 Final Notes
 
-This project is designed for:
+This project is built for:
 
-* Portfolio showcase
-* Interview demo
-* UI/UX demonstration
-* Mock API integration practice
+* Portfolio
+* Technical showcase
+* Interview demonstration
+* Practice for API + UI integration
 
+---
+
+# 👨‍💻 Developer
+
+### **👤 Developed By: *Sai Chandan Yadav***
+
+* Full Stack Developer
+* Passionate about UI/UX, scalable applications, and clean architectures
+* LinkedIn: [https://www.linkedin.com/in/saichandanyadav/](https://www.linkedin.com/in/saichandanyadav/)
+* GitHub: [https://github.com/Saichandanyadav](https://github.com/Saichandanyadav)
+
+  
+
+Just tell me!
