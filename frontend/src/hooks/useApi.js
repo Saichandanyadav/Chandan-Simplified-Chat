@@ -1,5 +1,4 @@
-// frontend/src/hooks/useApi.js
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://chandan-simplified-chat.onrender.com/api';
 
 const useApi = () => {
 
