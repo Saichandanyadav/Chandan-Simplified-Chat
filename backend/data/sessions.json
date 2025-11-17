@@ -1,0 +1,50 @@
+[
+  {
+    "id": "sess_1694567890",
+    "title": "Q3 Sales Performance Analysis",
+    "history": [
+      {
+        "id": 1,
+        "type": "user",
+        "content": "What are the best-selling products this quarter?"
+      },
+      {
+        "id": 2,
+        "type": "ai",
+        "content": {
+          "description": "Based on your inquiry, here is a detailed breakdown of the top 3 best-selling gadgets from Q3...",
+          "table_data": [
+            { "product": "Electro-Watch 5", "units_sold": 125000, "revenue_usd": 7500000 },
+            { "product": "Sonic Earbuds Pro", "units_sold": 98000, "revenue_usd": 4900000 },
+            { "product": "Mini-Drone X1", "units_sold": 45000, "revenue_usd": 6750000 }
+          ],
+          "feedback": { "likes": 5, "dislikes": 0 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "sess_1694567999",
+    "title": "Marketing Budget for Next Year",
+    "history": [
+      {
+        "id": 1,
+        "type": "user",
+        "content": "Can you summarize the projected marketing spend?"
+      },
+      {
+        "id": 2,
+        "type": "ai",
+        "content": {
+          "description": "The projected marketing spend for the next fiscal year is allocated primarily to digital channels, as shown in the table...",
+          "table_data": [
+            { "channel": "Digital Ads", "budget_usd": 400000, "percentage": "50%" },
+            { "channel": "Social Media", "budget_usd": 200000, "percentage": "25%" },
+            { "channel": "Print/OOH", "budget_usd": 100000, "percentage": "12.5%" }
+          ],
+          "feedback": { "likes": 3, "dislikes": 1 }
+        }
+      }
+    ]
+  }
+]

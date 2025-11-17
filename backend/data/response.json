@@ -1,0 +1,33 @@
+{
+  "description": "Based on your inquiry, here is a detailed breakdown of the top 3 best-selling gadgets from Q3, focusing on units sold and revenue generated. This data helps in quickly identifying high-performing products.",
+  "table_data": [
+    {
+      "id": 1,
+      "product": "Electro-Watch 5",
+      "category": "Wearables",
+      "units_sold": 125000,
+      "revenue_usd": 7500000,
+      "growth": "+15%"
+    },
+    {
+      "id": 2,
+      "product": "Sonic Earbuds Pro",
+      "category": "Audio",
+      "units_sold": 98000,
+      "revenue_usd": 4900000,
+      "growth": "+8%"
+    },
+    {
+      "id": 3,
+      "product": "Mini-Drone X1",
+      "category": "Drones",
+      "units_sold": 45000,
+      "revenue_usd": 6750000,
+      "growth": "-3%"
+    }
+  ],
+  "feedback": {
+    "likes": 12,
+    "dislikes": 1
+  }
+}
